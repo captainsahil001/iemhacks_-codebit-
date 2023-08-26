@@ -1,178 +1,292 @@
 /* styles.css */
+
 body {
+    @import "https://www.nerdfonts.com/assets/css/webfont.css";
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-}
-
-header {
-    background-color: #007bff;
-    color: #fff;
+  }
+  
+  header {
+    background: #007bff;
+    color: #f4f4f4;
     text-align: center;
-    padding: 20px 0;
-}
-
-.navbar {
+    padding: 0 0;
+  }
+  .top-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ff6f61;
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #333;
+    height: 70px;
+    padding: 1em;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu > li {
+    margin: 0 1rem;
+    overflow: hidden;
+  }
+  
+  .menu-button-container {
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #menu-toggle {
+    display: none;
+  }
+  
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+  }
+  
+  .menu-button::before {
+    content: "";
+    margin-top: -8px;
+  }
+  
+  .menu-button::after {
+    content: "";
+    margin-top: 8px;
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::before {
+    margin-top: 0px;
+    transform: rotate(405deg);
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button {
+    background: rgba(255, 255, 255, 0.7);
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    margin-top: 0px;
+    transform: rotate(-405deg);
+  }
+  
+  @media (max-width: 700px) {
+    .menu-button-container {
+      display: flex;
+    }
+    .menu {
+      position: absolute;
+      top: 18px;
+      margin-top: 50px;
+      left: 0;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    #menu-toggle ~ .menu li {
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    #menu-toggle:checked ~ .menu li {
+      border: 1px solid #333;
+      height: 2.5em;
+      padding: 0.5em;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .menu > li {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0.5em 0;
+      width: 100%;
+      color: white;
+      background-color: #222;
+    }
+    .menu > li:not(:last-child) {
+      border-bottom: 1px solid #444;
+    }
+  }
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-}
-
-.navbar .logo a {
-    color: #fff;
+  }
+  
+  .navbar .logo a {
+    color: #03071e;
     text-decoration: none;
     font-size: 32px;
     font-weight: bold;
-}
-
-.navbar .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  }
+  
+  .navbar .nav-links {
     display: flex;
-}
-
-.navbar .nav-links li {
+  }
+  
+  .navbar .nav-links li {
     margin: 0 15px;
-}
-
-.navbar .nav-links li a {
-    color: #fff;
+  }
+  
+  .navbar .nav-links li a {
+    color: #ffbf46;
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
     transition: color 0.3s;
-}
-
-.navbar .nav-links li a:hover {
-    color: #ddd;
-}
-
-.hero-content {
+  }
+  
+  .navbar .nav-links li a:hover {
+    background-color: #e2f2;
+  }
+  
+  .hero-content {
     text-align: center;
     margin-top: 50px;
-}
-
-.hero-content h1 {
+    padding-bottom: 10px;
+  }
+  
+  .hero-content h1 {
     font-size: 48px;
     margin-bottom: 20px;
-}
-
-.hero-content p {
+  }
+  
+  .hero-content p {
     font-size: 20px;
     margin-bottom: 30px;
-}
-
-.cta-buttons {
+  }
+  
+  .cta-buttons {
     text-align: center;
     margin-top: 20px;
-}
-
-.btn {
+  }
+  
+  .btn {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #007bff;
-    color: #fff;
+  
+    color: #575761;
     text-decoration: none;
     border-radius: 5px;
     margin: 0 20px;
     font-weight: bold;
     font-size: 20px;
     transition: background-color 0.3s;
-}
-
-.btn:hover {
+  }
+  
+  .btn:hover {
     background-color: #0056b3;
-}
-
-.description {
+  }
+  
+  .description {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     max-width: 800px;
-}
-
-h2 {
+  }
+  
+  h2 {
     color: #333;
     font-size: 24px;
-}
-
-.description p {
+  }
+  
+  .description p {
     line-height: 1.6;
     font-size: 18px;
-}
-
-.features {
+  }
+  
+  .features {
     background-color: #f9f9f9;
     padding: 40px 0;
     text-align: center;
-}
-
-.features h2 {
+  }
+  
+  .features h2 {
     font-size: 36px;
     margin-bottom: 30px;
-}
-
-.feature {
+  }
+  
+  .feature {
     margin: 30px;
-}
-
-.feature img {
+  }
+  
+  .feature img {
     max-width: 100px;
     margin-bottom: 20px;
-}
-
-.feature h3 {
+  }
+  
+  .feature h3 {
     font-size: 24px;
     margin-bottom: 10px;
-}
-
-.testimonials {
+  }
+  
+  .testimonials {
     background-color: #fff;
     padding: 40px 0;
     text-align: center;
-}
-
-.testimonials h2 {
+  }
+  
+  .testimonials h2 {
     font-size: 36px;
     margin-bottom: 30px;
-}
-
-.testimonial {
+  }
+  
+  .testimonial {
     margin: 20px;
-}
-
-.testimonial p {
+  }
+  
+  .testimonial p {
     font-size: 18px;
     margin-bottom: 10px;
-}
-
-.testimonial cite {
+  }
+  
+  .testimonial cite {
     font-style: italic;
     font-size: 16px;
-}
-
-.contact {
+  }
+  
+  .contact {
     background-color: #f9f9f9;
     padding: 40px 0;
     text-align: center;
-}
-
-.contact h2 {
+  }
+  
+  .contact h2 {
     font-size: 36px;
     margin-bottom: 30px;
-}
-
-.contact p {
+  }
+  
+  .contact p {
     font-size: 18px;
     margin-bottom: 20px;
-}
-
-.contact-btn {
+  }
+  
+  .contact-btn {
     display: inline-block;
     padding: 15px 30px;
     background-color: #007bff;
@@ -182,27 +296,27 @@ h2 {
     font-weight: bold;
     font-size: 20px;
     transition: background-color 0.3s;
-}
-
-.contact-btn:hover {
+  }
+  
+  .contact-btn:hover {
     background-color: #0056b3;
-}
-
-footer {
+  }
+  
+  footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px 0;
-}
-
-footer p {
+  }
+  
+  footer p {
     font-size: 16px;
-}
-
-/* styles.css */
-/* ... (previous styles) */
-
-.description {
+  }
+  
+  /* styles.css */
+  /* ... (previous styles) */
+  
+  .description {
     background-color: #fff;
     padding: 40px;
     border-radius: 5px;
@@ -210,51 +324,52 @@ footer p {
     margin: 20px auto;
     max-width: 800px;
     text-align: center;
-}
-
-.description h2 {
+  }
+  
+  .description h2 {
     color: #007bff;
     font-size: 36px;
     margin-bottom: 20px;
-}
-
-.description p {
+  }
+  
+  .description p {
     line-height: 1.6;
     font-size: 20px;
     color: #555;
     margin-bottom: 30px;
-}
-
-/* Add a decorative image */
-.description img {
+  }
+  
+  /* Add a decorative image */
+  .description img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Add a decorative quote */
-.description blockquote {
+  }
+  
+  /* Add a decorative quote */
+  .description blockquote {
     font-style: italic;
     font-size: 24px;
     color: #555;
     margin: 30px 0;
-}
-
-/* Add a decorative horizontal line */
-.description hr {
+  }
+  
+  /* Add a decorative horizontal line */
+  .description hr {
     border: none;
     border-top: 1px solid #ddd;
     margin: 30px 0;
-}
-
-/* Update the font size for better readability */
-.description a {
+  }
+  
+  /* Update the font size for better readability */
+  .description a {
     font-size: 22px;
-}
-
-/* Update the button style */
-.description a.btn {
+  }
+  
+  /* Update the button style */
+  .description a.btn {
     padding: 15px 30px;
     font-size: 24px;
-}
+  }
+  
