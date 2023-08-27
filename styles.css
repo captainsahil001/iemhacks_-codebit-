@@ -3,14 +3,14 @@
 body {
     @import "https://www.nerdfonts.com/assets/css/webfont.css";
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #fef6e4;
     margin: 0;
     padding: 0;
   }
   
   header {
-    background: #007bff;
-    color: #f4f4f4;
+    background: #fef6e4;
+    color: #001858;
     text-align: center;
     padding: 0 0;
   }
@@ -19,9 +19,9 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: #ff6f61;
+    background-color: #f3d2c1;
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: #333;
+    color: #001858;
     height: 70px;
     padding: 1em;
   }
@@ -137,7 +137,7 @@ body {
   }
   
   .navbar .logo a {
-    color: #03071e;
+    color: #001858;
     text-decoration: none;
     font-size: 32px;
     font-weight: bold;
@@ -152,7 +152,7 @@ body {
   }
   
   .navbar .nav-links li a {
-    color: #ffbf46;
+    color: #001858;
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
